@@ -125,9 +125,8 @@ app.use(session({
     resave: false,
     saveUninitialized:false,
     cookie:{
-        httpOnly: true,
-    secure: false, // true if using https
-    sameSite: "lax", // or 'none' if secure
+    secure: true, // true if using https
+    sameSite: "none", // or 'none' if secure
     }
 })
 );
