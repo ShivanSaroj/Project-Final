@@ -4,8 +4,8 @@ const ensureAuthenticated = require('../middlewares/Auth'); // ✅ Add this line
 const router = require('express').Router();
 
 // ✅ Protect each route using the middleware
-router.get('/', ensureAuthenticated, fetchExpenses);
-router.post('/', ensureAuthenticated, addExpenses);
-router.delete('/:expenseId', ensureAuthenticated, deleteExpenses);
+router.get('/', fetchExpenses);
+router.post('/', addExpenses);
+router.delete('/:expenseId', deleteExpenses);
 
 module.exports = router;
