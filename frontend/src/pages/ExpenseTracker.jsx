@@ -45,38 +45,39 @@ function ExpenseTracker() {
   const fetchExpenses = async () => {
     
 
-    try {
-      const url = `${import.meta.env.VITE_BACKEND_URL}/expenses`;
+  //   try {
+  //     const url = `${import.meta.env.VITE_BACKEND_URL}/expenses`;
     
   
-      const response = await fetch(url, {
+  //     const response = await fetch(url, {
 
-        method: 'GET', // or 'POST', etc.
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        credentials: 'include' // ✅ ensures session cookie is sent
-      });
-      console.log("response: ",response)
+  //       method: 'GET', // or 'POST', etc.
+  //       headers: {
+  //         'Content-Type': 'application/json'
+  //       },
+  //       credentials: 'include' // ✅ ensures session cookie is sent
+  //     });
+  //     console.log("response: ",response)
   
-      if (response.status === 403) {
-        navigate('/login');
+  //     if (response.status === 403) {
+  //       navigate('/login');
 
-        return;
-      }
+  //       return;
+  //     }
   
-      const result = await response.json();
-      console.log(result.data);
-      setExpenses(result.data);
+  //     const result = await response.json();
+  //     console.log(result.data);
+  //     setExpenses(result.data);
       
-    } catch (err) {
-      handleError(err);
-    }
-  }
+  //   } catch (err) {
+  //     handleError(err);
+  //   }
+  // }
   
-  useEffect(()=>{
-    fetchExpenses()
-  },[])
+  // useEffect(()=>{
+  //   fetchExpenses()
+  // },[])
+  }
 
   const addExpenses = async (data) => {
     
