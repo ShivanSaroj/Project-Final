@@ -137,7 +137,7 @@ app.use(passport.session());
 //routes
 
 app.use('/auth',AuthRouter);
-app.use('/expenses',ensureAuthenticated ,ExpenseRouter)
+app.use('/expenses',ExpenseRouter)
 app.use('/api/subscribers', subscriberRoutes);
 app.use('/api/currency', currencyRoutes);
 app.use('/api/weather', weatherRoutes);
