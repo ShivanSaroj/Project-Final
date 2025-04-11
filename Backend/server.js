@@ -46,6 +46,7 @@ app.use(cors({
   origin: `${process.env.FRONTEND_URL}`,  // your frontend origin
   credentials: true                 // allow cookies
 }));
+app.options('*', cors());
 const cron = require('node-cron'); 
 const geminiRoutes = require('./routes/geminiRoutes');
 const movieRoutes = require("./routes/movieRoutes");
@@ -125,6 +126,7 @@ app.use(session({
     resave: false,
     saveUninitialized:false,
     cookie:{
+        httpOnly: true,
     secure: true, // true if using https
     sameSite: "none", // or 'none' if secure
     }
@@ -135,7 +137,7 @@ app.use(passport.session());
 //routes
 
 app.use('/auth',AuthRouter);
-app.use('/expenses' ,ExpenseRouter)
+app.use('/expenses',ensureAuthenticated ,ExpenseRouter)
 app.use('/api/subscribers', subscriberRoutes);
 app.use('/api/currency', currencyRoutes);
 app.use('/api/weather', weatherRoutes);
